@@ -68,6 +68,26 @@
       background: linear-gradient(180deg, oklch(0.16 0.012 180 / 0.35), oklch(0.16 0.012 180 / 0.67) 60%, oklch(0.16 0.012 180));
       pointer-events: none;
     }
+    .asset-warning {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 200;
+      display: none;
+      max-width: 760px;
+      margin: 0 auto;
+      border: 1px solid oklch(0.82 0.15 88 / 0.65);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: var(--fg);
+      background: oklch(0.14 0.018 70 / 0.94);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .asset-warning strong { color: var(--gold); }
     header, main, footer { position: relative; z-index: 5; }
     .nav-wrap { position: fixed; inset: 0 0 auto; z-index: 40; padding: 20px clamp(16px, 4vw, 40px) 0; }
     .nav {
@@ -276,6 +296,9 @@
     <source src="./lovable-assets/media/hero.mp4" type="video/mp4" />
   </video>
   <div class="hero-fade"></div>
+  <div class="asset-warning" id="assetWarning">
+    <strong>GitHub assets missing:</strong> upload the complete <code>lovable-assets</code> folder beside <code>index.html</code>. Required files: <code>media/hero.mp4</code>, <code>awards/*.jpeg</code>, and <code>cv/Abdullah-Hasni-CV.pdf</code>.
+  </div>
 
   <header class="nav-wrap">
     <div class="nav">
@@ -446,6 +469,20 @@
       const playAttempt = video.play();
       if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
     });
+
+    const requiredAssets = [
+      "./lovable-assets/media/hero.mp4",
+      "./lovable-assets/awards/imec15-gold.jpeg",
+      "./lovable-assets/awards/imec14.jpeg",
+      "./lovable-assets/awards/accolades.jpeg",
+      "./lovable-assets/cv/Abdullah-Hasni-CV.pdf"
+    ];
+    Promise.all(requiredAssets.map((src) => fetch(src, { method: "HEAD" }).then((response) => response.ok).catch(() => false)))
+      .then((results) => {
+        if (results.some((ok) => !ok)) {
+          document.getElementById("assetWarning").style.display = "block";
+        }
+      });
 
     const modal = document.getElementById("assetModal");
     const modalTitle = document.getElementById("assetTitle");
