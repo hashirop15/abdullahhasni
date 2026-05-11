@@ -46,7 +46,7 @@
     p { color: var(--muted); line-height: 1.75; }
     h1, h2, h3, p { margin-top: 0; }
     h1, h2, h3 { letter-spacing: 0; }
-    h1 { margin-bottom: 24px; font-size: clamp(3.25rem, 7vw, 6.1rem); line-height: 0.96; }
+    h1 { margin-bottom: 24px; font-size: clamp(3.3rem, 8vw, 7rem); line-height: 0.93; }
     h2 { max-width: 850px; margin-bottom: 18px; font-size: clamp(2rem, 5vw, 4.4rem); line-height: 1; }
     h3 { margin-bottom: 8px; font-size: 1.2rem; line-height: 1.25; }
     sub { font-size: 0.7em; line-height: 0; vertical-align: sub; }
@@ -68,26 +68,6 @@
       background: linear-gradient(180deg, oklch(0.16 0.012 180 / 0.35), oklch(0.16 0.012 180 / 0.67) 60%, oklch(0.16 0.012 180));
       pointer-events: none;
     }
-    .asset-warning {
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-      z-index: 200;
-      display: none;
-      max-width: 760px;
-      margin: 0 auto;
-      border: 1px solid oklch(0.82 0.15 88 / 0.65);
-      border-radius: 16px;
-      padding: 14px 16px;
-      color: var(--fg);
-      background: oklch(0.14 0.018 70 / 0.94);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    .asset-warning strong { color: var(--gold); }
     header, main, footer { position: relative; z-index: 5; }
     .nav-wrap { position: fixed; inset: 0 0 auto; z-index: 40; padding: 20px clamp(16px, 4vw, 40px) 0; }
     .nav {
@@ -139,12 +119,12 @@
     .btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
     .section { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 104px 0; }
     .hero {
+      min-height: 100svh;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
-      align-items: start;
-      gap: clamp(36px, 7vw, 82px);
-      padding-top: clamp(118px, 15vh, 140px);
-      padding-bottom: clamp(44px, 7vh, 72px);
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
+      align-items: center;
+      gap: clamp(36px, 7vw, 90px);
+      padding-top: 142px;
     }
     .eyebrow { margin: 0 0 16px; color: var(--primary); font-size: 0.74rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.18em; }
     .lead { max-width: 720px; font-size: clamp(1rem, 1.7vw, 1.18rem); }
@@ -167,12 +147,11 @@
     .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 12px var(--primary); }
     .actions, .viewer-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
     .rotating-line { display: flex; align-items: center; gap: 8px; margin: 22px 0 34px; }
-    .hero-copy { max-width: 690px; }
-    .turbine { position: relative; width: min(430px, 100%); aspect-ratio: 1; margin: -18px auto 0; }
+    .turbine { position: relative; width: min(460px, 100%); aspect-ratio: 1; margin: 0 auto; }
     .ring { position: absolute; inset: 0; border: 1px solid oklch(0.74 0.17 158 / 0.3); border-radius: 50%; animation: spin 38s linear infinite; }
     .ring::before, .ring::after { content: ""; position: absolute; inset: 22px; border-radius: 50%; border: 1px solid oklch(0.72 0.2 50 / 0.2); }
     .ring::after { inset: 56px; border-style: dashed; border-color: oklch(0.82 0.15 88 / 0.3); }
-    .portrait { position: absolute; inset: 64px; overflow: hidden; border: 2px solid oklch(0.74 0.17 158 / 0.6); border-radius: 50%; box-shadow: inset 0 0 120px oklch(0.74 0.17 158 / 0.45), 0 0 80px oklch(0.82 0.15 88 / 0.25); }
+    .portrait { position: absolute; inset: 72px; overflow: hidden; border: 2px solid oklch(0.74 0.17 158 / 0.6); border-radius: 50%; box-shadow: inset 0 0 120px oklch(0.74 0.17 158 / 0.45), 0 0 80px oklch(0.82 0.15 88 / 0.25); }
     .portrait video { width: 100%; height: 100%; object-fit: cover; }
     .float-card {
       position: absolute;
@@ -187,13 +166,12 @@
     }
     .float-card small { display: block; color: var(--primary); text-transform: uppercase; letter-spacing: 0.16em; font-weight: 900; }
     .float-card span { display: block; color: var(--muted); font-size: 0.75rem; margin-top: 5px; }
-    .float-1 { right: -4px; top: 18px; border-color: oklch(0.82 0.15 88 / 0.5); box-shadow: 0 0 80px oklch(0.82 0.15 88 / 0.45); }
-    .float-2 { left: -40px; top: 42%; animation-delay: 1.2s; }
-    .float-3 { right: 8px; bottom: 8px; animation-delay: 2.4s; }
+    .float-1 { right: -10px; top: 26px; border-color: oklch(0.82 0.15 88 / 0.5); box-shadow: 0 0 80px oklch(0.82 0.15 88 / 0.45); }
+    .float-2 { left: -18px; top: 45%; animation-delay: 1.2s; }
+    .float-3 { right: 28px; bottom: 0; animation-delay: 2.4s; }
     .grid { display: grid; gap: 18px; }
     .two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .card {
       border: 1px solid var(--line);
       border-radius: 24px;
@@ -202,18 +180,6 @@
       backdrop-filter: blur(22px) saturate(145%);
       box-shadow: var(--shadow);
     }
-    .timeline { position: relative; }
-    .timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 24px; height: 1px; background: linear-gradient(90deg, transparent, oklch(0.74 0.17 158 / 0.45), transparent); }
-    .step { position: relative; padding-top: 38px; }
-    .step::before { content: ""; position: absolute; top: 17px; left: calc(50% - 8px); width: 16px; height: 16px; border-radius: 50%; background: var(--gradient-emerald); box-shadow: 0 0 36px oklch(0.74 0.17 158 / 0.52); }
-    .experience-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-bottom: 36px; }
-    .experience-row:nth-child(even) .exp-title { order: 2; text-align: left; }
-    .experience-row:nth-child(even) .exp-card { order: 1; }
-    .exp-title { text-align: right; }
-    .exp-title .period { color: var(--primary); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; }
-    .exp-card ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.8; }
-    .skill-row { display: flex; flex-wrap: wrap; gap: 9px; }
-    .skill { border: 1px solid var(--line); border-radius: 999px; background: oklch(0.97 0.008 90 / 0.045); padding: 10px 16px; color: var(--fg); font-weight: 700; box-shadow: 0 0 24px oklch(0.74 0.17 158 / 0.16); }
     .asset-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -261,66 +227,44 @@
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
     @media (max-width: 920px) {
       .nav-links { display: none; }
-      .hero, .two, .three, .four, .experience-row { grid-template-columns: 1fr; }
-      .hero-copy { text-align: center; margin: 0 auto; }
-      .rotating-line, .actions { justify-content: center; }
-      .exp-title, .experience-row:nth-child(even) .exp-title { text-align: left; order: initial; }
-      .experience-row:nth-child(even) .exp-card { order: initial; }
-      .timeline::before { display: none; }
+      .hero, .two, .three { grid-template-columns: 1fr; }
       .asset-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
-      h1 { font-size: clamp(3.25rem, 16vw, 5rem); }
-      h2 { font-size: 2.15rem; line-height: 1.08; }
-      .nav-wrap { padding: 12px 12px 0; }
-      .nav { gap: 12px; padding: 10px 12px; }
-      .nav .btn { min-height: 36px; padding: 0 12px; font-size: 0.78rem; }
       .section { width: min(100% - 28px, 1180px); padding: 76px 0; }
-      .hero { gap: 40px; padding-top: 112px; padding-bottom: 48px; }
+      .hero { padding-top: 118px; }
       .brand span:last-child { display: none; }
-      .lead { font-size: 1rem; line-height: 1.7; }
-      .actions { display: grid; grid-template-columns: 1fr 1fr; }
-      .actions .btn { width: 100%; padding: 0 12px; font-size: 0.82rem; }
-      .turbine { width: min(320px, 100%); margin-top: 0; }
-      .portrait { inset: 44px; }
       .float-card { position: static; width: auto; margin-top: 12px; }
-      .card, .award-main { padding: 20px; border-radius: 20px; }
-      .asset-actions { align-items: flex-start; }
-      .mini-actions { width: 100%; }
-      .mini-actions a { flex: 1; text-align: center; }
     }
   </style>
 </head>
 <body>
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="./lovable-assets/media/hero.mp4" type="video/mp4" />
+    <source src="lovable-assets/media/hero.mp4" type="video/mp4" />
   </video>
   <div class="hero-fade"></div>
-  <div class="asset-warning" id="assetWarning">
-    <strong>GitHub assets missing:</strong> upload the complete <code>lovable-assets</code> folder beside <code>index.html</code>. Required files: <code>media/hero.mp4</code>, <code>awards/*.jpeg</code>, and <code>cv/Abdullah-Hasni-CV.pdf</code>.
-  </div>
 
   <header class="nav-wrap">
     <div class="nav">
       <a href="#top" class="brand"><span class="brand-mark">AH</span><span>Abdullah Hasni</span></a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a><a href="#journey">Journey</a><a href="#experience">Experience</a><a href="#research">Research</a><a href="#awards">Awards</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#research">Research</a><a href="#certifications">Certifications</a><a href="#awards">Awards</a><a href="#contact">Contact</a>
       </nav>
-      <a class="btn primary" href="./lovable-assets/cv/Abdullah-Hasni-CV.pdf" target="_blank" rel="noreferrer">View CV</a>
+      <a class="btn primary" href="lovable-assets/cv/Abdullah-Hasni-CV.pdf" target="_blank" rel="noreferrer">View CV</a>
     </div>
   </header>
 
   <main>
     <section id="top" class="section hero">
-      <div class="hero-copy">
+      <div>
         <div class="pill"><span class="dot"></span> Mechanical Engineering - Karachi, Pakistan</div>
         <h1>Abdullah <span class="gradient-emerald">Hasni</span></h1>
         <p class="lead">Mechanical Engineer - Sustainable Engineering & Clean Energy Systems - CFD & Machine Learning Research.</p>
         <div class="rotating-line"><span>Focused on</span><span id="rotation" class="gradient-flame">Twin Turbojet Research</span></div>
         <div class="actions">
           <a class="btn primary" href="#research">Explore Research</a>
-          <a class="btn" href="./lovable-assets/cv/Abdullah-Hasni-CV.pdf" target="_blank" rel="noreferrer">View CV</a>
-          <a class="btn" href="./lovable-assets/cv/Abdullah-Hasni-CV.pdf" download>Download CV</a>
+          <a class="btn" href="lovable-assets/cv/Abdullah-Hasni-CV.pdf" target="_blank" rel="noreferrer">View CV</a>
+          <a class="btn" href="lovable-assets/cv/Abdullah-Hasni-CV.pdf" download>Download CV</a>
           <a class="btn" href="https://www.linkedin.com/in/abdullah-hasni-19bb27295/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
@@ -328,7 +272,7 @@
         <div class="ring"></div>
         <div class="portrait">
           <video autoplay muted loop playsinline>
-            <source src="./lovable-assets/media/hero.mp4" type="video/mp4" />
+            <source src="lovable-assets/media/hero.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="float-card float-1"><small>Gold Category</small><strong>Best Paper Presentation</strong><span>IMEC 2026 - EU-Funded</span></div>
@@ -343,38 +287,6 @@
       <p class="lead">Mechanical Engineer from Karachi, Pakistan with interdisciplinary expertise spanning sustainable engineering, clean energy systems, propulsion research, CFD, and applied machine learning.</p>
     </section>
 
-    <section id="journey" class="section">
-      <p class="eyebrow">Career Journey</p>
-      <h2>From student to <span class="gradient-flame">emerging researcher</span>.</h2>
-      <p class="lead">A cinematic arc through engineering education, industrial impact, and frontier research.</p>
-      <div class="grid four timeline" style="margin-top:34px">
-        <article class="card step"><p class="eyebrow">2020-2024</p><h3>Mechanical Engineering Student</h3><p>NED University, Karachi - foundations in thermofluids, propulsion, manufacturing.</p></article>
-        <article class="card step"><p class="eyebrow">2024-2025</p><h3>Industrial Engineering Career</h3><p>Smart manufacturing & digital twins at Amreli Steels.</p></article>
-        <article class="card step"><p class="eyebrow">2025-2026</p><h3>Advanced Research & Sustainable Engineering</h3><p>Refinery sustainability, CFD + ML integration, hydrogen decarbonization.</p></article>
-        <article class="card step"><p class="eyebrow">2026 onward</p><h3>Emerging PhD Researcher</h3><p>Bridging propulsion, AI, and clean energy at international scale.</p></article>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <p class="eyebrow">Industrial Experience</p>
-      <h2>Engineering impact across <span class="gradient-emerald">steel, energy & pharma</span>.</h2>
-      <p class="lead">Three pillars of industrial leadership: manufacturing intelligence, refinery sustainability, and plant energy optimization.</p>
-      <div style="margin-top:34px">
-        <div class="experience-row">
-          <div class="exp-title"><div class="period">2024-2025</div><h3>Amreli Steels Ltd</h3><p>Industrial Engineer - Smart Manufacturing</p></div>
-          <article class="card exp-card"><ul><li>Smart Manufacturing Systems & Predictive Maintenance</li><li>3D CAD Modeling and digital twin interfaces</li><li>Power BI dashboards for industrial telemetry</li><li>RAG + LangChain Systems with SQL/NoSQL integration</li><li>Industrial automation across steel manufacturing lines</li></ul></article>
-        </div>
-        <div class="experience-row">
-          <div class="exp-title"><div class="period">2025-2026</div><h3>National Refinery Ltd</h3><p>Senior Management Engineer</p></div>
-          <article class="card exp-card"><ul><li>CFD + Machine Learning integration for gas flow analysis</li><li>SO<sub>2</sub> & H<sub>2</sub>S emissions monitoring and prediction</li><li>Predictive maintenance for refinery process equipment</li><li>Refinery sustainability & energy optimization</li><li>Saved PKR 40M - increased profitability by 12%</li></ul></article>
-        </div>
-        <div class="experience-row">
-          <div class="exp-title"><div class="period">2026-Present</div><h3>Getz Pharma Ltd</h3><p>Executive Engineer - Plant Engineering & Energy Management</p></div>
-          <article class="card exp-card"><ul><li>Energy analysis across pharmaceutical manufacturing plant</li><li>Crisis management - retained 60% electrical load</li><li>Uninterrupted production continuity under grid stress</li><li>PKR 120M optimization across energy-efficient operations</li><li>Industrial sustainability & plant energy dashboards</li></ul></article>
-        </div>
-      </div>
-    </section>
-
     <section id="research" class="section">
       <p class="eyebrow">Publications & Research</p>
       <h2>Peer-reviewed work in <span class="gradient-emerald">propulsion, hydrogen & ML</span>.</h2>
@@ -387,7 +299,7 @@
 
     <section id="certifications" class="section">
       <p class="eyebrow">Certifications</p>
-      <h2>Credentials from <span class="gradient-emerald">world-class institutions</span>.</h2>
+      <h2>Credentials and proof images you can <span class="gradient-emerald">view or download</span>.</h2>
       <div class="grid three" style="margin-top:34px">
         <article class="card"><h3>Advanced Sustainable Engineering</h3><p>Siemens x University of Colorado Boulder</p></article>
         <article class="card"><h3>Introduction to Uncertainty Quantification</h3><p>Johns Hopkins University</p></article>
@@ -396,24 +308,19 @@
         <article class="card"><h3>GenAI, ML & RAG Training</h3><p>Aspire x Pak Angels Silicon Valley</p></article>
         <article class="card"><h3>Laser Powder Bed Fusion</h3><p>JEOL Innovative Solutions</p></article>
       </div>
-    </section>
-
-    <section class="section">
-      <p class="eyebrow">Conferences</p>
-      <h2>International <span class="gradient-flame">recognition</span> & invited talks.</h2>
-      <div class="grid two" style="margin-top:34px">
-        <article class="card"><p class="eyebrow">NTU Singapore - Jan 2025</p><h3>Asian Materials and Design Engineering Symposium</h3><p class="gradient-emerald">Invited Speaker</p></article>
-        <article class="card"><p class="eyebrow">European Union - Mar 2025</p><h3>14th International Mechanical Engineering Conference</h3><p class="gradient-emerald">Young Research Prodigy Award</p></article>
-        <article class="card"><p class="eyebrow">European Union - Jan 2026</p><h3>15th International Mechanical Engineering Conference</h3><p class="gradient-emerald">Gold Category Award - Best Paper Presentation</p></article>
-        <article class="card"><p class="eyebrow">Springer Nature</p><h3>Springer Nature Peer Reviewer Recognition</h3><p class="gradient-emerald">Certified Peer Reviewer</p></article>
-      </div>
-    </section>
-
-    <section class="section">
-      <p class="eyebrow">Core Skills</p>
-      <h2>An interdisciplinary <span class="gradient-flame">engineering toolkit</span>.</h2>
-      <div class="skill-row" style="margin-top:34px">
-        <span class="skill">CFD & ANSYS</span><span class="skill">Machine Learning</span><span class="skill">Python</span><span class="skill">Deep Learning</span><span class="skill">Bayesian UQ</span><span class="skill">Sustainable Engineering</span><span class="skill">Hydrogen Systems</span><span class="skill">SolidWorks</span><span class="skill">FEA</span><span class="skill">TensorFlow - PyTorch</span><span class="skill">Generative AI - RAG</span>
+      <div class="asset-grid" style="margin-top:22px">
+        <article class="asset-card">
+          <a href="lovable-assets/awards/imec15-gold.jpeg" data-view="Gold Category Certificate"><img src="lovable-assets/awards/imec15-gold.jpeg" alt="Gold category certificate preview" /></a>
+          <div class="asset-actions"><span>Gold Category Certificate</span><div class="mini-actions"><a href="lovable-assets/awards/imec15-gold.jpeg" data-view="Gold Category Certificate">View</a><a href="lovable-assets/awards/imec15-gold.jpeg" download>Download</a></div></div>
+        </article>
+        <article class="asset-card">
+          <a href="lovable-assets/awards/imec14.jpeg" data-view="IMEC 14 Certificate"><img src="lovable-assets/awards/imec14.jpeg" alt="IMEC 14 certificate preview" /></a>
+          <div class="asset-actions"><span>IMEC 14 Certificate</span><div class="mini-actions"><a href="lovable-assets/awards/imec14.jpeg" data-view="IMEC 14 Certificate">View</a><a href="lovable-assets/awards/imec14.jpeg" download>Download</a></div></div>
+        </article>
+        <article class="asset-card">
+          <a href="lovable-assets/awards/accolades.jpeg" data-view="Accolades Certificate"><img src="lovable-assets/awards/accolades.jpeg" alt="Accolades certificate preview" /></a>
+          <div class="asset-actions"><span>Accolades Certificate</span><div class="mini-actions"><a href="lovable-assets/awards/accolades.jpeg" data-view="Accolades Certificate">View</a><a href="lovable-assets/awards/accolades.jpeg" download>Download</a></div></div>
+        </article>
       </div>
     </section>
 
@@ -425,9 +332,9 @@
         <h3>Gold Category Award - <span class="gradient-gold">Best Paper Presentation</span></h3>
         <p>15th International Mechanical Engineering Conference - IEP Karachi Centre x European Union - January 2026. Awarded for "In-Situ Decarbonization of SMR Hydrogen - A Comparative Exergy & Machine Learning Framework."</p>
         <div class="asset-grid">
-          <article class="asset-card"><a href="./lovable-assets/awards/imec15-gold.jpeg" data-view="Gold Award"><img src="./lovable-assets/awards/imec15-gold.jpeg" alt="IMEC 2026 Gold Category Award certificate" /></a><div class="asset-actions"><span>Gold Award</span><div class="mini-actions"><a href="./lovable-assets/awards/imec15-gold.jpeg" data-view="Gold Award">View</a><a href="./lovable-assets/awards/imec15-gold.jpeg" download>Download</a></div></div></article>
-          <article class="asset-card"><a href="./lovable-assets/awards/imec14.jpeg" data-view="IMEC 14"><img src="./lovable-assets/awards/imec14.jpeg" alt="14th IMEC certificate" /></a><div class="asset-actions"><span>IMEC 14</span><div class="mini-actions"><a href="./lovable-assets/awards/imec14.jpeg" data-view="IMEC 14">View</a><a href="./lovable-assets/awards/imec14.jpeg" download>Download</a></div></div></article>
-          <article class="asset-card"><a href="./lovable-assets/awards/accolades.jpeg" data-view="Accolades"><img src="./lovable-assets/awards/accolades.jpeg" alt="International conference accolades" /></a><div class="asset-actions"><span>Accolades</span><div class="mini-actions"><a href="./lovable-assets/awards/accolades.jpeg" data-view="Accolades">View</a><a href="./lovable-assets/awards/accolades.jpeg" download>Download</a></div></div></article>
+          <article class="asset-card"><a href="lovable-assets/awards/imec15-gold.jpeg" data-view="Gold Award"><img src="lovable-assets/awards/imec15-gold.jpeg" alt="IMEC 2026 Gold Category Award certificate" /></a><div class="asset-actions"><span>Gold Award</span><div class="mini-actions"><a href="lovable-assets/awards/imec15-gold.jpeg" data-view="Gold Award">View</a><a href="lovable-assets/awards/imec15-gold.jpeg" download>Download</a></div></div></article>
+          <article class="asset-card"><a href="lovable-assets/awards/imec14.jpeg" data-view="IMEC 14"><img src="lovable-assets/awards/imec14.jpeg" alt="14th IMEC certificate" /></a><div class="asset-actions"><span>IMEC 14</span><div class="mini-actions"><a href="lovable-assets/awards/imec14.jpeg" data-view="IMEC 14">View</a><a href="lovable-assets/awards/imec14.jpeg" download>Download</a></div></div></article>
+          <article class="asset-card"><a href="lovable-assets/awards/accolades.jpeg" data-view="Accolades"><img src="lovable-assets/awards/accolades.jpeg" alt="International conference accolades" /></a><div class="asset-actions"><span>Accolades</span><div class="mini-actions"><a href="lovable-assets/awards/accolades.jpeg" data-view="Accolades">View</a><a href="lovable-assets/awards/accolades.jpeg" download>Download</a></div></div></article>
         </div>
       </article>
     </section>
@@ -443,7 +350,7 @@
   <footer>
     <div class="footer-inner">
       <span id="copyright"></span>
-      <span><a href="mailto:hasniabdullah975@gmail.com">hasniabdullah975@gmail.com</a> &nbsp; <a href="./lovable-assets/cv/Abdullah-Hasni-CV.pdf" download>Download CV</a></span>
+      <span><a href="mailto:hasniabdullah975@gmail.com">hasniabdullah975@gmail.com</a> &nbsp; <a href="lovable-assets/cv/Abdullah-Hasni-CV.pdf" download>Download CV</a></span>
     </div>
   </footer>
 
@@ -469,20 +376,6 @@
       const playAttempt = video.play();
       if (playAttempt && typeof playAttempt.catch === "function") playAttempt.catch(() => {});
     });
-
-    const requiredAssets = [
-      "./lovable-assets/media/hero.mp4",
-      "./lovable-assets/awards/imec15-gold.jpeg",
-      "./lovable-assets/awards/imec14.jpeg",
-      "./lovable-assets/awards/accolades.jpeg",
-      "./lovable-assets/cv/Abdullah-Hasni-CV.pdf"
-    ];
-    Promise.all(requiredAssets.map((src) => fetch(src, { method: "HEAD" }).then((response) => response.ok).catch(() => false)))
-      .then((results) => {
-        if (results.some((ok) => !ok)) {
-          document.getElementById("assetWarning").style.display = "block";
-        }
-      });
 
     const modal = document.getElementById("assetModal");
     const modalTitle = document.getElementById("assetTitle");
